@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus DeFi Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">NEXUS</div>
+            <ul>
+                <li class="active">Swap</li>
+                <li>Liquidity</li>
+                <li>Staking</li>
+                <li>Governance</li>
+            </ul>
+        </nav>
+
+        <!-- Main Dashboard -->
+        <main class="main-content">
+            <header>
+                <div class="stats">
+                    <div class="stat-item">TVL: <span>$1,240,550</span></div>
+                    <div class="stat-item">Volume 24h: <span class="green">+$12k</span></div>
+                </div>
+                <button class="connect-btn">Connect Wallet</button>
+            </header>
+
+            <section class="simulator-area">
+                <div class="swap-card">
+                    <h3>Swap</h3>
+                    <div class="input-box">
+                        <label>From</label>
+                        <div class="input-row">
+                            <input type="number" placeholder="0.0">
+                            <select>
+                                <option>ETH</option>
+                                <option>USDC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="arrow-icon">↓</div>
+
+                    <div class="input-box">
+                        <label>To (Estimated)</label>
+                        <div class="input-row">
+                            <input type="number" placeholder="0.0" disabled>
+                            <select>
+                                <option>DAI</option>
+                                <option>WBTC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="details">
+                        <p>Exchange Rate: 1 ETH = 2,450 DAI</p>
+                        <p>Slippage Tolerance: 0.5%</p>
+                    </div>
+
+                    <button class="action-btn">Swap Assets</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
