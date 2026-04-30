@@ -3,76 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum DeFi</title>
+    <title>Protocol X | Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Glows -->
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
+    <!-- Animated Background Mesh -->
+    <div class="mesh-gradient"></div>
+    <div class="cursor-glow" id="cursor"></div>
 
-    <div class="glass-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">QUANTUM</div>
-            <nav>
-                <div class="nav-item active">Swap</div>
-                <div class="nav-item">Lending</div>
-                <div class="nav-item">Analytics</div>
-            </nav>
-        </aside>
+    <main class="app-shell">
+        <!-- Glass Navigation -->
+        <nav class="side-dock">
+            <div class="brand">Σ</div>
+            <div class="nav-links">
+                <a href="#" class="nav-icon active" data-tooltip="Swap">⇄</a>
+                <a href="#" class="nav-icon" data-tooltip="Bridge">🌉</a>
+                <a href="#" class="nav-icon" data-tooltip="Pools">🌊</a>
+                <a href="#" class="nav-icon" data-tooltip="Nodes">🛰️</a>
+            </div>
+            <div class="settings-bottom">⚙️</div>
+        </nav>
 
-        <!-- Main Workspace -->
-        <main class="content">
-            <header>
-                <div class="search-bar">Search tokens...</div>
-                <div class="user-profile">
-                    <span class="balance">2.45 ETH</span>
-                    <button class="wallet-pill">0x71...4a2</button>
+        <section class="viewport">
+            <header class="top-bar">
+                <div class="path-display">DeFi / <span class="white">Simulator</span></div>
+                <div class="header-actions">
+                    <div class="network-status">
+                        <span class="dot pulse"></span> Mainnet
+                    </div>
+                    <button class="btn-primary-glass">Connect <span>Wallet</span></button>
                 </div>
             </header>
 
-            <div class="bento-grid">
-                <!-- Main Swap Card -->
-                <div class="card swap-card">
-                    <div class="card-header">
-                        <h3>Exchange</h3>
-                        <span class="settings-icon">⚙️</span>
-                    </div>
-                    
-                    <div class="input-group">
-                        <input type="number" placeholder="0.0">
-                        <button class="token-select">ETH</button>
+            <div class="dashboard-grid">
+                <!-- Main Interaction (Swap) -->
+                <div class="bento-item swap-zone">
+                    <div class="card-glow"></div>
+                    <div class="swap-header">
+                        <h2>Swap Tokens</h2>
+                        <div class="slippage">0.1% Slippage</div>
                     </div>
 
-                    <div class="swap-divider">
-                        <div class="divider-line"></div>
-                        <div class="swap-circle">↓</div>
+                    <div class="asset-input">
+                        <div class="input-meta"><span>Sell</span> <span>Balance: 1.42</span></div>
+                        <div class="input-row">
+                            <input type="text" value="1.0">
+                            <button class="asset-pill">ETH <span class="chevron">▾</span></button>
+                        </div>
                     </div>
 
-                    <div class="input-group">
-                        <input type="number" placeholder="0.0">
-                        <button class="token-select">USDC</button>
+                    <div class="swap-mid">
+                        <div class="round-btn">⇅</div>
                     </div>
 
-                    <button class="action-btn">Connect & Swap</button>
+                    <div class="asset-input">
+                        <div class="input-meta"><span>Buy</span> <span>Est. Output</span></div>
+                        <div class="input-row">
+                            <input type="text" placeholder="2,450.00" readonly>
+                            <button class="asset-pill">USDC <span class="chevron">▾</span></button>
+                        </div>
+                    </div>
+
+                    <button class="confirm-btn">Execute Protocol</button>
                 </div>
 
-                <!-- Market Info Bento Item -->
-                <div class="card mini-card">
-                    <h4>Market Cap</h4>
-                    <p class="value">$2.4B</p>
-                    <span class="trend">+4.2%</span>
+                <!-- Live Market Data -->
+                <div class="bento-item market-chart">
+                    <div class="chart-header">
+                        <h3>ETH / USDC</h3>
+                        <span class="price-up">$2,450.82 (+2.4%)</span>
+                    </div>
+                    <div class="visual-placeholder">
+                        <!-- We'd normally use a Canvas or Chart.js here -->
+                        <div class="mock-graph"></div>
+                    </div>
                 </div>
 
-                <!-- Gas Info Bento Item -->
-                <div class="card mini-card">
-                    <h4>Gas Fee</h4>
-                    <p class="value">12 Gwei</p>
-                    <span class="status">Fast</span>
+                <!-- Small Stats -->
+                <div class="bento-item small-stat">
+                    <label>Gas Gwei</label>
+                    <div class="val">18</div>
+                </div>
+                <div class="bento-item small-stat">
+                    <label>TVL</label>
+                    <div class="val">$4.2B</div>
                 </div>
             </div>
-        </main>
-    </div>
+        </section>
+    </main>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
 </body>
 </html>
